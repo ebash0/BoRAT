@@ -4,7 +4,7 @@ using System.IO;
 using System.Security.Cryptography;
 using System.Text;
 
-namespace BoRAT.Recovery.Browsers
+namespace BoRAT.Core.Recovery.Browsers
 {
     public class ChromiumBase
     {
