@@ -11,7 +11,7 @@ namespace BoRAT
             while(true)
             {
                 Http.Request();
-                Thread.Sleep(5000);
+                Thread.Sleep(6000);
             }
 
             Console.ReadKey();
