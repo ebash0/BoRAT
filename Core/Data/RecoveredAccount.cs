@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace BoRAT.Core.Recovery.Browsers
+namespace BoRAT.Core.Data
 {
     public class RecoveredAccount
     {

