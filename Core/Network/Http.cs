@@ -28,8 +28,13 @@ namespace BoRAT.Core.Network
 
                     // Receive
                     byte[] rec = new byte[1024];
-                    socket.Receive(rec, rec.Length, SocketFlags.None);
-                    string response = Encoding.ASCII.GetString(rec);
+                    string response = null;
+                    int countBytes;
+                    do
+                    {
+                        countBytes = socket.Receive(rec, rec.Length, SocketFlags.None);
+                        response += Encoding.ASCII.GetString(rec, 0, countBytes);
+                    } while (countBytes > 0);
 
                     socket.Close();
 
