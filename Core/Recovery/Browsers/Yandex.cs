@@ -1,8 +1,8 @@
 ﻿using BoRAT.Core.Data;
+using BoRAT.Core.Recover.Utilites;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Text;
 
 namespace BoRAT.Core.Recovery.Browsers
 {

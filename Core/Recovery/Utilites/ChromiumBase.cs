@@ -6,7 +6,7 @@ using System.Text;
 using BoRAT.Core.Data;
 using BoRAT.Core.Recovery.Utilites;
 
-namespace BoRAT.Core.Recovery.Browsers
+namespace BoRAT.Core.Recover.Utilites
 {
     public class ChromiumBase
     {
