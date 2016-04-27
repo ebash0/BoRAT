@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Core\Commands\Run.cs" />
+    <Compile Include="Core\Commands\Work.cs" />
     <Compile Include="Core\Data\Info.cs" />
     <Compile Include="Core\Network\Http.cs" />
     <Compile Include="Core\Recovery\Browsers\Opera.cs" />
