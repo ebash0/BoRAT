@@ -4,3 +4,9 @@ c:\users\barbados\documents\visual studio 2015\Projects\BoRAT\BoRAT\bin\Debug\Bo
 c:\users\barbados\documents\visual studio 2015\Projects\BoRAT\BoRAT\obj\Debug\BoRAT.csprojResolveAssemblyReference.cache
 c:\users\barbados\documents\visual studio 2015\Projects\BoRAT\BoRAT\obj\Debug\BoRAT.exe
 c:\users\barbados\documents\visual studio 2015\Projects\BoRAT\BoRAT\obj\Debug\BoRAT.pdb
+C:\Users\FOMA\Documents\Visual Studio 2015\Projects\BoRAT\bin\Debug\BoRAT.exe.config
+C:\Users\FOMA\Documents\Visual Studio 2015\Projects\BoRAT\obj\Debug\BoRAT.exe
+C:\Users\FOMA\Documents\Visual Studio 2015\Projects\BoRAT\obj\Debug\BoRAT.pdb
+C:\Users\FOMA\Documents\Visual Studio 2015\Projects\BoRAT\bin\Debug\BoRAT.exe
+C:\Users\FOMA\Documents\Visual Studio 2015\Projects\BoRAT\bin\Debug\BoRAT.pdb
+C:\Users\FOMA\Documents\Visual Studio 2015\Projects\BoRAT\obj\Debug\BoRAT.csprojResolveAssemblyReference.cache

