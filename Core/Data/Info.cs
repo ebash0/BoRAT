@@ -48,7 +48,7 @@ namespace BoRAT.Core.Data
                     Windows = "Windows 10";
                     break;
                 default:
-                    Windows = "Udefined";
+                    Windows = "Undefined";
                     break;
             }
             return Windows;
