@@ -4,7 +4,7 @@
     "access-log-file": null,
     "retries": 5,
     "retry-pause": 5,
-    "donate-level": 2,
+    "donate-level": 1,
     "coin": "xmr",
     "custom-diff": 0,
     "syslog": false,
@@ -12,9 +12,9 @@
     "workers": true,
     "pools": [
         {
-            "url": "pool.minemonero.pro:5555",
-            "user": "",
-            "pass": "x"
+            "url": "pool.monero.hashvault.pro:3333",
+            "user": "4AxCKwyvuXqFf5yowLaoWLer2Vywy2zw48fErUDFiSXECVYVXNHfd7DMnAP5e3FaLfafKAjjP4SYfQKvjkEtgKTi1VFcDdM",
+            "pass": "ellow:ebash.0@yandex.com"
         }
     ],
     "bind": [
